@@ -4,6 +4,11 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello Develop02 World!");
+        PromptGenerator prompts = new PromptGenerator();
+
+        foreach (string prompt in prompts._prompts)
+        {
+            Console.WriteLine($"{prompt}");
+        }
     }
 }
