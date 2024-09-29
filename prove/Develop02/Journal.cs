@@ -45,9 +45,9 @@ public class Journal
     {
         if (_entries.Count != 0) 
         {
-            Console.WriteLine("Enter journal name eg journal-1.txt");
+            Console.WriteLine("Enter journal name eg journal-1");
             Console.Write("Name: ");
-            _fileName = Console.ReadLine();
+            _fileName = Console.ReadLine()+".csv";
             using (StreamWriter newFile = new StreamWriter(_fileName))
             {
                 foreach (Entry entry in _entries) 
@@ -66,7 +66,7 @@ public class Journal
     {
         Console.WriteLine("Enter journal name to load eg journal-1.txt");
         Console.Write("Name: ");
-        _fileName = Console.ReadLine();
+        _fileName = Console.ReadLine()+".csv";
 
         if (!File.Exists(_fileName))
         {
