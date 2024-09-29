@@ -11,7 +11,7 @@ public class PromptGenerator
         "If I had one thing I could do over today, what would it be?",
         "Who was the most interesting person I interacted with today?",
         "What scripture inspired me today?",
-        "What goad did I achieve today?",
+        "What goal did I achieve today?",
         "Is there any advice or message I would like to share with tomorrow me?"
 
     };
@@ -22,6 +22,8 @@ public class PromptGenerator
 
     public string GetRandomPrompt()
     {
-        return "";
+        Random random = new Random();
+        string prompt = _prompts[random.Next(_prompts.Count)];
+        return prompt;
     }
 }
