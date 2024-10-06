@@ -16,8 +16,10 @@ class Program
             if (script.IsCompletelyHidden() || response == "quit")
             {
                 quit = true;
+            } else
+            {
+                script.HideRandomWords(2);
             }
-            script.HideRandomWords(2);
         }
 
         Console.WriteLine($"\nThanks for memorizing scripture, see you next time\n");
