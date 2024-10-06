@@ -8,19 +8,20 @@ public class Scripture
 
     public Scripture()
     {
-        string[] verses = File.ReadAllLines("../../../mathew.csv");
-        Random rand = new Random();
-        string verse  = verses[rand.Next(verses.Length)];
-        string[] verseArray = verse.Split(',');
-        string line = String.Join(",", verseArray[3..verseArray.Length]);
-
+        string[] verseArray = Loader();
         _reference = new Reference(verseArray[0], int.Parse(verseArray[1]), int.Parse(verseArray[2]));
+
+        string line = String.Join(",", verseArray[3..verseArray.Length]);
         LineToWordsList(line);
     }
 
-    private string Loader()
+    private string[] Loader()
     {
-        return "";
+        string[] verses = File.ReadAllLines("../../../mathew.csv");
+        Random rand = new Random();
+        string verse  = verses[rand.Next(verses.Length)];
+        
+        return verse.Split(',');
     }
 
     private void LineToWordsList(string line)
