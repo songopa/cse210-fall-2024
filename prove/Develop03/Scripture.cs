@@ -8,7 +8,7 @@ public class Scripture
 
     public Scripture()
     {
-        string[] verses = File.ReadAllLines("mathew.csv");
+        string[] verses = File.ReadAllLines("../../../mathew.csv");
         Random rand = new Random();
         string verse  = verses[rand.Next(verses.Length)];
         string[] verseArray = verse.Split(',');
