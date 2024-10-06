@@ -13,7 +13,7 @@ public class Reference
     }
     public Reference(string book, int chapter, int startVerse, int endVerse)
     {
-        _book = book;
+        _book = book.ToUpper();
         _chapter = chapter;
         _verse = startVerse;
         _endVerse = endVerse;
