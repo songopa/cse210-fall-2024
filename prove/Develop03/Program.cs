@@ -3,9 +3,23 @@ using System;
 class Program
 {
     static void Main(string[] args)
-    {
-        Reference ref1 = new Reference("John", 1, 16);
-        Scripture s1 = new Scripture(ref1, "For God so loved the world that he gave his one and only Son, that whoever believes in him shall not perish but have eternal life.");
-        Console.WriteLine($"{s1.GetDisplayText()}");
+    {   
+        Scripture script = new Scripture();
+        bool quit = false;
+
+        while (!quit)
+        {
+            Console.Clear();
+            Console.WriteLine($"\n{script.GetDisplayText()}");
+            Console.Write("\nTo continue press Enter or type 'quit' to quit: ");
+            string response = Console.ReadLine();
+            if (script.IsCompletelyHidden() || response == "quit")
+            {
+                quit = true;
+            }
+            script.HideRandomWords(2);
+        }
+
+        Console.WriteLine($"\nThanks for memorizing scripture, see you next time\n");
     }
 }

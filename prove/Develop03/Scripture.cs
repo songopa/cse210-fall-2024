@@ -4,11 +4,23 @@ public class Scripture
 {
     private Reference _reference;
     private List<Word> _words = new List<Word>();
+    
 
-    public Scripture(Reference reference, string line)
+    public Scripture()
     {
-        _reference = reference;
+        string[] verses = File.ReadAllLines("mathew.csv");
+        Random rand = new Random();
+        string verse  = verses[rand.Next(verses.Length)];
+        string[] verseArray = verse.Split(',');
+        string line = String.Join(",", verseArray[3..verseArray.Length]);
+
+        _reference = new Reference(verseArray[0], int.Parse(verseArray[1]), int.Parse(verseArray[2]));
         LineToWordsList(line);
+    }
+
+    private string Loader()
+    {
+        return "";
     }
 
     private void LineToWordsList(string line)
@@ -27,14 +39,18 @@ public class Scripture
 
     public void HideRandomWords(int numberToHide)
     {
-        while (numberToHide > 0)
+        while (numberToHide > 0 )
         {    
             Random random = new Random();
             Word word = _words[random.Next(_words.Count)];
-            if(word.IsHidden())
+            if(!word.IsHidden())
             {
                 word.Hide();
                 numberToHide--;
+            }
+            if (IsCompletelyHidden())
+            {
+                numberToHide = 0;
             }
         }
     }
@@ -51,6 +67,20 @@ public class Scripture
 
     public bool IsCompletelyHidden()
     {
-        return false;
+        int hiddenCount = 0;
+        foreach (Word word in _words)
+        {
+            if (word.IsHidden()) 
+            {
+                hiddenCount++;
+            }
+        }
+        if (hiddenCount == _words.Count())
+        {
+            return true;
+        } else
+        {
+            return false;
+        }
     }
 }
