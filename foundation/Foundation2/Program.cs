@@ -9,13 +9,17 @@ class Program
         Product product3 = new Product(3, "sandals", 6, 18000);
         Product product4 = new Product(4, "trouser", 2, 22000);
         Product product5 = new Product(5, "jeans", 4, 16000);
+
         Customer customer1 = new Customer("James McLurkin", "Idaho", "Utah", "USA");
         Customer customer2 = new Customer("Astra Yohanes", "Chilao", "Kilimanjaro", "Tanzania");
+
         Order order1 = new Order(customer1);
         Order order2 = new Order(customer2);
+
         order1.AddProductToOrder(product1);
         order1.AddProductToOrder(product2);
         order1.AddProductToOrder(product5);
+        
         order2.AddProductToOrder(product3);
         order2.AddProductToOrder(product4);
         order2.AddProductToOrder(product1);
