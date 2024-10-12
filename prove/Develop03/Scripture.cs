@@ -18,6 +18,7 @@ public class Scripture
     private string[] Loader()
     {
         string verse;
+        
         try
         {
             string[] verses = File.ReadAllLines("mathew.csv");
@@ -26,7 +27,7 @@ public class Scripture
         }
         catch (FileNotFoundException ex)
         {
-            verse = "mathew,4,1,Then was Jesus led up of the spirit into the wilderness to be tempted of the devil.";
+            verse = "mathew,4,4,\"But he answered and said, It is written, Man shall not live by bread alone, but by every word that proceedeth out of the mouth of God.\"";
         }
         
         return verse.Split(',');
