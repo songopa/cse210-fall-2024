@@ -17,7 +17,7 @@ public class Scripture
 
     private string[] Loader()
     {
-        string[] verses = File.ReadAllLines("../../../mathew.csv");
+        string[] verses = File.ReadAllLines("mathew.csv");
         Random rand = new Random();
         string verse  = verses[rand.Next(verses.Length)];
         
