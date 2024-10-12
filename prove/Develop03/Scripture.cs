@@ -17,9 +17,17 @@ public class Scripture
 
     private string[] Loader()
     {
-        string[] verses = File.ReadAllLines("mathew.csv");
-        Random rand = new Random();
-        string verse  = verses[rand.Next(verses.Length)];
+        string verse;
+        try
+        {
+            string[] verses = File.ReadAllLines("mathew.csv");
+            Random rand = new Random();
+            verse  = verses[rand.Next(verses.Length)];
+        }
+        catch (FileNotFoundException ex)
+        {
+            verse = "mathew,4,1,Then was Jesus led up of the spirit into the wilderness to be tempted of the devil.";
+        }
         
         return verse.Split(',');
     }
