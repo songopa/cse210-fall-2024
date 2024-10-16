@@ -3,10 +3,10 @@ public class Customer
     private string _name;
     private Address _address;
 
-    public Customer (string name, string city, string province, string country)
+    public Customer (string name, string street, string city, string province, string country)
     {
         _name = name;
-        _address = new Address(city, province, country);
+        _address = new Address(street, city, province, country);
     }
 
     public bool IsUsaAddress()
