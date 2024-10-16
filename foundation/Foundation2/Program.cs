@@ -24,8 +24,14 @@ class Program
         order2.AddProductToOrder(product4);
         order2.AddProductToOrder(product1);
 
-        order1.DisplayOrderDetails();
-        order2.DisplayOrderDetails();
+        List<Order> orders = new List<Order>();
+        orders.Add(order1);
+        orders.Add(order2);
+
+        foreach (Order order in orders)
+        {
+            order.DisplayOrderDetails();
+        }
         
     }
 }

@@ -17,13 +17,18 @@ public class Video
         _comments.Add(new Comment(name, comment));
     }
 
+    public int CommentCount()
+    {
+        return _comments.Count();
+    }
+
     public void DisplayVideoText()
     {
-        Console.WriteLine($"\n{_title} - {_author} - {_seconds/60}:{_seconds%60}");
+        Console.WriteLine($"\n{_title} by {_author} - {_seconds/60}:{_seconds%60}");
+        Console.WriteLine($"Total comments: {CommentCount()}");
         foreach (Comment comment in _comments)
         {
             Console.WriteLine($"{comment.DisplayCommentText()}");
         }
-        Console.WriteLine();
     }
 }

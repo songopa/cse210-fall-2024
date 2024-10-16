@@ -16,6 +16,6 @@ public class Customer
 
     public string GetCustomerText()
     {
-        return $"{_name}\n{_address.GetAddressText()}";
+        return $"Name: {_name}\n{_address.GetAddressText()}";
     }
 }

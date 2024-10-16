@@ -40,27 +40,27 @@ public class Order
         return TotalProductCost() + ShippingCost();
     }
 
-    public void DisplayPackagingLabel()
+    public string GetPackagingLabelText()
     {
+        string productsLabel = "";
         foreach(Product product in _products)
         {
-            Console.WriteLine(product.GetProductText());
+            productsLabel = productsLabel + $"{product.GetProductText()}\n";
         }
+        return productsLabel;
     }
 
-    public void DisplayShippingLabel()
+    public string GetShippingLabelText()
     {
-        Console.WriteLine($"{_customer.GetCustomerText()}");
+        return _customer.GetCustomerText();
     }
 
     public void DisplayOrderDetails()
     {
         Console.WriteLine($"\nORDER DETAILS");
-        Console.WriteLine($"Packaging Label");
-        Console.WriteLine($"ID  PRODUCT");
-        DisplayPackagingLabel();
+        Console.WriteLine($"Packaging Label \nID - PRODUCT \n{GetPackagingLabelText()}");
         Console.WriteLine($"Subtotal: ${TotalProductCost()} \nShipping: ${ShippingCost()} \nTotal: ${TotalOrderCost()}");
-        Console.WriteLine($"\nShipping Label");
-        DisplayShippingLabel();
+        Console.WriteLine($"\nShipping Label \n{GetShippingLabelText()}");
+        Console.WriteLine();
     }
 }
