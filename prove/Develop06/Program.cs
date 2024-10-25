@@ -11,7 +11,7 @@ class Program
         //instead I have made fixed point per each goal, thus SimpleGoal 20pts, EternalGoal 30pts 
         //and ChecklistGoal 10pts per each achievement and 50 bonus pts once goal completed
         //In doing so, I have been able to implement levels and a user gets bonus as they level up
-        //Having a function for showing congratulation emoji after acomplishing a goal or leveling up
-        //Cheking if goals are present before saving or recording goal accomplishment
+        //Having a function for showing congratulation emoji after accomplishing a goal or leveling up
+        //Checking if goals are present before saving or recording goal accomplishment
     }
 }
