@@ -1,13 +1,13 @@
 public class EternalGoal : Goal
 {
-    public EternalGoal(string name, string description, int points) :base(name, description, points)
+    public EternalGoal(string name, string description) :base(name, description, 30)
     {
         
     }
 
-    public override void RecordEvent()
+    public override int RecordEvent()
     {
-        
+        return GetGoalPoints();
     }
     public override bool IsComplete()
     {
@@ -15,6 +15,6 @@ public class EternalGoal : Goal
     }
     public override string GetStringRepresentation()
     {
-        return "";
+       return $"EternalGoal: {GetGoalName()},{GetGoalDescription()}";
     }
 }

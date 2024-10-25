@@ -2,14 +2,15 @@ public class SimpleGoal : Goal
 {
     private bool _isComplete;
 
-    public SimpleGoal(string name, string description, int points) :base(name, description, points)
+    public SimpleGoal(string name, string description) :base(name, description, 20)
     {
         _isComplete = false;
     }
 
-    public override void RecordEvent()
+    public override int RecordEvent()
     {
-        
+        SetComplete();
+        return GetGoalPoints();
     }
     public override bool IsComplete()
     {
@@ -17,7 +18,11 @@ public class SimpleGoal : Goal
     }
     public override string GetStringRepresentation()
     {
-        return "";
+        return $"SimpleGoal: {GetGoalName()},{GetGoalDescription()},{_isComplete}";
+    }
+    public void SetComplete()
+    {
+        _isComplete = true;
     }
 
 }
